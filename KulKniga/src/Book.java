@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Book{
     IOProcessor printScan=new IOProcessor();
+    private String b;
 
     private Map<String, Collection> bludo = new HashMap<>();
     public  Collection cez(){
@@ -48,7 +49,9 @@ public class Book{
     }
 
 
-    public void print(String b) {
+    public void print() {
+        printScan.read();
+        b=printScan.s;
         bludo.put("цезарь", cez());
         bludo.put("пицца", pizza());
         bludo.put("курица", chiken());
@@ -60,7 +63,9 @@ public class Book{
             }
         }return;
     }
-    public void addition(String b) {
+    public void addition() {
+        printScan.read();
+        b=printScan.s;
         bludo.put("цезарь", cez());
         bludo.put("пицца", pizza());
         bludo.put("курица", chiken());
@@ -68,8 +73,8 @@ public class Book{
         bludo.put("плов", plov());
         for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
             if (b.equals(entry.getKey())) {
-                System.out.println("Введите ингредиент");
-                printScan.scanner();
+                printScan.print(4);
+                printScan.read();
                 entry.getValue().add(printScan.s);
                 printScan.printValue(entry.getValue());
             }
@@ -85,22 +90,25 @@ public class Book{
             printScan.printKey(entry.getKey());
         }
     }
-    public void newCollection(String b) {
-        String a="готово";
-        Collection newBludo = new ArrayList();
+    public void newCollection() {
         String name;
-        printScan.scanner();
+        printScan.read();
         name=printScan.s;
-        do {
-            System.out.println("Введите ингредиент");
-            printScan.scanner();
+        String a="нет";
+        Collection newBludo = new ArrayList();
+        while (!a.equals(printScan.s)) {
+            printScan.print(4);
+            printScan.read();
             b=printScan.s;
             newBludo.add(b);
-        }while (!a.equals(printScan.s));
+            printScan.print(5);
+            printScan.read();
+        }
                 printScan.printKeyValue(name,newBludo);
             }
-
-    public void deleteCollection(String b){
+    public void deleteCollection(){
+        printScan.read();
+        b=printScan.s;
         bludo.put("цезарь", cez());
         bludo.put("пицца", pizza());
         bludo.put("курица", chiken());
@@ -114,8 +122,6 @@ public class Book{
         }
 
     }
-
-
 }
 
 
