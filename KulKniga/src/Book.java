@@ -2,7 +2,9 @@ import java.util.*;
 
 public class Book{
     IOProcessor printScan=new IOProcessor();
+
     private String b;
+    private String s=null;
 
     private Map<String, Collection> bludo = new HashMap<>();
     public  Collection cez(){
@@ -50,8 +52,7 @@ public class Book{
 
 
     public void print() {
-        printScan.read();
-        b=printScan.s;
+        b=printScan.read(s);
         bludo.put("цезарь", cez());
         bludo.put("пицца", pizza());
         bludo.put("курица", chiken());
@@ -64,8 +65,8 @@ public class Book{
         }return;
     }
     public void addition() {
-        printScan.read();
-        b=printScan.s;
+        String ing;
+        b=printScan.read(s);
         bludo.put("цезарь", cez());
         bludo.put("пицца", pizza());
         bludo.put("курица", chiken());
@@ -74,8 +75,8 @@ public class Book{
         for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
             if (b.equals(entry.getKey())) {
                 printScan.print(4);
-                printScan.read();
-                entry.getValue().add(printScan.s);
+                ing=printScan.read(s);
+                entry.getValue().add(ing);
                 printScan.printValue(entry.getValue());
             }
         }
@@ -92,23 +93,20 @@ public class Book{
     }
     public void newCollection() {
         String name;
-        printScan.read();
-        name=printScan.s;
+        name=printScan.read(s);
         String a="нет";
         Collection newBludo = new ArrayList();
-        while (!a.equals(printScan.s)) {
+        do {
             printScan.print(4);
-            printScan.read();
-            b=printScan.s;
+            b=printScan.read(s);
             newBludo.add(b);
             printScan.print(5);
-            printScan.read();
-        }
+            b=printScan.read(s);
+        } while (!a.equals(b));
                 printScan.printKeyValue(name,newBludo);
             }
     public void deleteCollection(){
-        printScan.read();
-        b=printScan.s;
+        b=printScan.read(s);
         bludo.put("цезарь", cez());
         bludo.put("пицца", pizza());
         bludo.put("курица", chiken());
