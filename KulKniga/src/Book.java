@@ -2,11 +2,10 @@ import java.util.*;
 
 public class Book{
     IOProcessor printScan=new IOProcessor();
-
     private String b;
     private String s=null;
-
     private Map<String, Collection> bludo = new HashMap<>();
+
     public  Collection cez(){
         Collection co1=new ArrayList();
         co1.add("салат 500г");
@@ -50,7 +49,6 @@ public class Book{
         return co1;
     }
 
-
     public void print() {
         b=printScan.read(s);
         bludo.put("цезарь", cez());
@@ -64,7 +62,7 @@ public class Book{
             }
         }return;
     }
-    public void addition() {
+    public void addition(){
         String ing;
         b=printScan.read(s);
         bludo.put("цезарь", cez());

@@ -22,22 +22,7 @@ public class IOProcessor {
 
 
     public void print(int i){
-        switch (i) {
-            case 1:
-                System.out.println("Редактировать,просмотреть блюдо, добавить блюдо,удалить или содержание? (р/п/д/у/с)");
-                break;
-            case 2:
-                System.out.println("Введите название блюда");
-                break;
-            case 3:
-                System.out.println("Введите название нового блюда");
-                break;
-            case 4:
-                System.out.println("Введите ингредиент");
-                break;
-            case 5:
-                System.out.println("Добавть еще ингредиент?");
-                break;
-        }
+        BookController b=new BookController(i);
+        System.out.println(b.s);
     }
 }
