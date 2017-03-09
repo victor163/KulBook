@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Book{
-    IOProcessor printScan=new IOProcessor();
+    IOProcessor printScan=new IOProcessor("");
     private String b;
     private String s=null;
     private Map<String, Collection> bludo = new HashMap<>();
@@ -63,6 +63,7 @@ public class Book{
         }return;
     }
     public void addition(){
+        BookController bk=new BookController();
         String ing;
         b=printScan.read(s);
         bludo.put("цезарь", cez());
@@ -72,7 +73,7 @@ public class Book{
         bludo.put("плов", plov());
         for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
             if (b.equals(entry.getKey())) {
-                printScan.print(4);
+                bk.BookController(4);
                 ing=printScan.read(s);
                 entry.getValue().add(ing);
                 printScan.printValue(entry.getValue());
@@ -90,15 +91,16 @@ public class Book{
         }
     }
     public void newCollection() {
+        BookController bk=new BookController();
         String name;
         name=printScan.read(s);
         String a="нет";
         Collection newBludo = new ArrayList();
         do {
-            printScan.print(4);
+            bk.BookController(4);
             b=printScan.read(s);
             newBludo.add(b);
-            printScan.print(5);
+            bk.BookController(5);
             b=printScan.read(s);
         } while (!a.equals(b));
                 printScan.printKeyValue(name,newBludo);

@@ -18,11 +18,7 @@ public class IOProcessor {
         s=scan.nextLine();
         return s;
     }
-
-
-
-    public void print(int i){
-        BookController b=new BookController(i);
-        System.out.println(b.s);
+    IOProcessor(String a){
+        System.out.print(a);
     }
 }

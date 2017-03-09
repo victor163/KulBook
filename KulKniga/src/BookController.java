@@ -9,45 +9,51 @@ public class BookController {
     final String content = "с";
 
     public void run(){
-        IOProcessor printScan=new IOProcessor();
+        IOProcessor printScan=new IOProcessor("");
         String exit="выход";
         String x;
+
         do{
-            printScan.print(1);
+            BookController(1);
+            //printScan.print(1);
             x=printScan.read(s);
             switch (x) {
-                case review:printScan.print(2);start.print();
+                case review:BookController(2);start.print();
                     break;
-                case edit:printScan.print(2);start.addition();
+                case edit:BookController(2);start.addition();
                     break;
-                case add:printScan.print(3);start.newCollection();
+                case add:BookController(3);start.newCollection();
                     break;
-                case delete:printScan.print(2);start.deleteCollection();
+                case delete:BookController(2);start.deleteCollection();
                     break;
                 case content:start.content();
                     break;
             }
         }while (!exit.equals(x));
+
     }
 
-    BookController(int x){
+    void BookController(int x){
         switch (x){
             case 1:
-                this.s="Редактировать,просмотреть блюдо, добавить блюдо,удалить или содержание? (р/п/д/у/с)";
+                this.s="Редактировать,просмотреть блюдо, добавить блюдо,удалить или содержание? (р/п/д/у/с)\n";
                 break;
             case 2:
-                this.s="Введите название блюда";
+                this.s="Введите название блюда\n";
                 break;
             case 3:
-                this.s="Введите название нового блюда";
+                this.s="Введите название нового блюда\n";
                 break;
             case 4:
-                this.s="Введите ингредиент";
+                this.s="Введите ингредиент\n";
                 break;
             case 5:
-                this.s="Добавть еще ингредиент?";
+                this.s="Добавть еще ингредиент?\n";
                 break;
         }
+        IOProcessor a=new IOProcessor(s);
+
+
 
     }
 }
