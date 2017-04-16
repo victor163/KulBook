@@ -63,7 +63,6 @@ public class Book{
         }return;
     }
     public void addition(){
-        BookController bk=new BookController();
         String ing;
         b=printScan.read(s);
         bludo.put("цезарь", cez());
@@ -73,7 +72,7 @@ public class Book{
         bludo.put("плов", plov());
         for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
             if (b.equals(entry.getKey())) {
-                bk.BookController(4);
+                new IOProcessor("Введите ингредиент\n");
                 ing=printScan.read(s);
                 entry.getValue().add(ing);
                 printScan.printValue(entry.getValue());
@@ -91,16 +90,15 @@ public class Book{
         }
     }
     public void newCollection() {
-        BookController bk=new BookController();
         String name;
         name=printScan.read(s);
         String a="нет";
         Collection newBludo = new ArrayList();
         do {
-            bk.BookController(4);
+            new IOProcessor("Введите ингредиент\n");
             b=printScan.read(s);
             newBludo.add(b);
-            bk.BookController(5);
+            new IOProcessor("Добавть еще ингредиент?\n");
             b=printScan.read(s);
         } while (!a.equals(b));
                 printScan.printKeyValue(name,newBludo);

@@ -12,48 +12,21 @@ public class BookController {
         IOProcessor printScan=new IOProcessor("");
         String exit="выход";
         String x;
-
         do{
-            BookController(1);
-            //printScan.print(1);
+            new IOProcessor("Редактировать,просмотреть блюдо, добавить блюдо,удалить или содержание? (р/п/д/у/с)\n");
             x=printScan.read(s);
             switch (x) {
-                case review:BookController(2);start.print();
+                case review:new IOProcessor("Введите название блюда\n");start.print();
                     break;
-                case edit:BookController(2);start.addition();
+                case edit:new IOProcessor("Введите название блюда\n");start.addition();
                     break;
-                case add:BookController(3);start.newCollection();
+                case add:new IOProcessor("Введите название нового блюда\n");start.newCollection();
                     break;
-                case delete:BookController(2);start.deleteCollection();
+                case delete:new IOProcessor("Введите название блюда\n");start.deleteCollection();
                     break;
                 case content:start.content();
                     break;
             }
         }while (!exit.equals(x));
-
-    }
-
-    void BookController(int x){
-        switch (x){
-            case 1:
-                this.s="Редактировать,просмотреть блюдо, добавить блюдо,удалить или содержание? (р/п/д/у/с)\n";
-                break;
-            case 2:
-                this.s="Введите название блюда\n";
-                break;
-            case 3:
-                this.s="Введите название нового блюда\n";
-                break;
-            case 4:
-                this.s="Введите ингредиент\n";
-                break;
-            case 5:
-                this.s="Добавть еще ингредиент?\n";
-                break;
-        }
-        IOProcessor a=new IOProcessor(s);
-
-
-
     }
 }
