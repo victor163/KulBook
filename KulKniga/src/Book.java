@@ -1,10 +1,14 @@
 import java.util.*;
 
 public class Book{
-    IOProcessor printScan=new IOProcessor("");
-    private String b;
-    private String s=null;
-    private Map<String, Collection> bludo = new HashMap<>();
+    private Map<String, Collection> bludo;
+    public Book() {
+        bludo = new HashMap();
+    }
+    public Map getBludo(){
+        return bludo;
+    }
+
 
     public  Collection cez(){
         Collection co1=new ArrayList();
@@ -49,75 +53,6 @@ public class Book{
         return co1;
     }
 
-    public void print() {
-        b=printScan.read(s);
-        bludo.put("цезарь", cez());
-        bludo.put("пицца", pizza());
-        bludo.put("курица", chiken());
-        bludo.put("бургер", burger());
-        bludo.put("плов", plov());
-        for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
-            if (b.equals(entry.getKey())) {
-                printScan.printKeyValue(entry.getKey(),entry.getValue());
-            }
-        }return;
-    }
-    public void addition(){
-        String ing;
-        b=printScan.read(s);
-        bludo.put("цезарь", cez());
-        bludo.put("пицца", pizza());
-        bludo.put("курица", chiken());
-        bludo.put("бургер", burger());
-        bludo.put("плов", plov());
-        for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
-            if (b.equals(entry.getKey())) {
-                new IOProcessor("Введите ингредиент\n");
-                ing=printScan.read(s);
-                entry.getValue().add(ing);
-                printScan.printValue(entry.getValue());
-            }
-        }
-    }
-    public void content() {
-        bludo.put("цезарь", cez());
-        bludo.put("пицца", pizza());
-        bludo.put("курица", chiken());
-        bludo.put("бургер", burger());
-        bludo.put("плов", plov());
-        for (Map.Entry<String, Collection> entry : bludo.entrySet()) {
-            printScan.printKey(entry.getKey());
-        }
-    }
-    public void newCollection() {
-        String name;
-        name=printScan.read(s);
-        String a="нет";
-        Collection newBludo = new ArrayList();
-        do {
-            new IOProcessor("Введите ингредиент\n");
-            b=printScan.read(s);
-            newBludo.add(b);
-            new IOProcessor("Добавть еще ингредиент?\n");
-            b=printScan.read(s);
-        } while (!a.equals(b));
-                printScan.printKeyValue(name,newBludo);
-            }
-    public void deleteCollection(){
-        b=printScan.read(s);
-        bludo.put("цезарь", cez());
-        bludo.put("пицца", pizza());
-        bludo.put("курица", chiken());
-        bludo.put("бургер", burger());
-        bludo.put("плов", plov());
-        for (Map.Entry<String, Collection> entry : bludo.entrySet()){
-            if (b.equals(entry.getKey())){
-                entry.getValue().clear();
-                printScan.printKeyValue(entry.getKey(),entry.getValue());
-            }
-        }
-
-    }
 }
 
 
